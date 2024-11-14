@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<table class="container mt-5 table table-bordered table-dark table-striped ">
+    <tr>
+        <th>TITLE</th>
+        <th>AUTHOR</th>
+        <th>PRICE</th>
+        <th>PAGES</th>
+        <th>LANGUAGE</th>
+        <th>COVER</th>
+        <th>DOCUMENT</th>
+    </tr>
+
+    {% for i in book %}
+    <tr>
+    <td >{{i.title}}</td>
+    <td>{{i.author}}</td>
+    <td>{{i.price}}</td>
+    <td>{{i.pages}}</td>
+    <td>{{i.language}}</td>
+    <td><img src="{{i.cover.url}}" style="height:100px;"></td>
+    <td><a href="{{i.pdf.url}}">Download</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}
